@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+    <h2 >Sistema Spring Boot Crud - Registro de Aluno</h2>
+    <tr>
+        <div align = "left" >           
+             <h3><a  th:href="@{'/new'}">Adicionar</a></h3>     
+        </div>
+    
+    </tr>
+    <tr>
+    
+    <div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+              <th>ID</th>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Taxa</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+       </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="student : ${liststudent }">
+        <td th:text="${student.id}">ID</td>
+        <td th:text="${student.studentname}">Nome</td>
+        <td th:text="${student.course}">Curso</td>
+        <td th:text="${student.fee}">Taxa</td>                
+        <td>
+            <a th:href="@{'/edit/' + ${student.id}}">Editar</a>
+        </td>                                
+        <td>
+            <a th:href="@{'/delete/' + ${student.id}}">Deletar</a>
+        </td>            
+        </tr> 
+   
+  </tbody>
+</table>
+                    
+                 </div>
+
+            </div> 
+
+    </tr>
+
+    </tbody>
+    </table>
+    <div>
+</body>
+</html>
